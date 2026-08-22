@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Rubik', sans-serif;
+    background-color: theme('colors.retro-green');
+    color: theme('colors.retro-black');
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Paper texture overlay */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Londrina Solid', cursive;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background: theme('colors.retro-pink');
+    color: theme('colors.retro-black');
+  }
+}
+
+@layer utilities {
+  .retro-card {
+    @apply bg-white border-[4px] border-retro-black shadow-retro rounded-xl transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-retro-lg;
+  }
+  
+  .retro-button {
+    @apply font-display text-2xl tracking-wide uppercase px-8 py-4 border-[4px] border-retro-black rounded-xl shadow-retro transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-retro-lg active:translate-y-0 active:translate-x-0 active:shadow-none;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 2px theme('colors.retro-black');
+    color: white;
+  }
+  
+  .text-stroke-lg {
+    -webkit-text-stroke: 3px theme('colors.retro-black');
+    color: white;
+    text-shadow: 4px 4px 0px theme('colors.retro-black');
+  }
+}
